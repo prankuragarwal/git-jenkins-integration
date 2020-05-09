@@ -12,5 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check_all_labels
-        if: (!((contains( github.event.pull_request.labels.*.name, 'Tested' || contains( github.event.pull_request.labels.*.name, 'No Testing Needed') && (contains( github.event.pull_request.labels.*.name, 'Bug') || contains( github.event.pull_request.labels.*.name, 'Feature') || contains( github.event.pull_request.labels.*.name, 'Enhancement')) && contains( github.event.pull_request.labels.*.name, 'Review Completed')))
+        if: ${{ (!((contains( github.event.pull_request.labels.*.name, 'Tested' || contains( github.event.pull_request.labels.*.name, 'No Testing Needed') && (contains( github.event.pull_request.labels.*.name, 'Bug') || contains( github.event.pull_request.labels.*.name, 'Feature') || contains( github.event.pull_request.labels.*.name, 'Enhancement')) && contains( github.event.pull_request.labels.*.name, 'Review Completed'))) }}
         run: exit 0
